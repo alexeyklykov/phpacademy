@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		
+		var a = prompt("Введите 1 число");
+		var mathOperation = prompt("Введите математическую операцию");
+		var b = prompt("Введите 2 число");
+		var result = null;
+
+		switch(mathOperation) {
+			case "+": result = a+b; break;
+			case "-": result = a-b; break;
+			case "*": result = a*b; break;
+			case "/": result = a/b; break;
+			case "%": result = a%b; break;
+			default:alert('Введена неверная операция');
+		}
+
+		document.write("Результат = " + result);
+
+
+	</script>
+</head>
+<body>
+</body>
+</html>
