@@ -4,26 +4,19 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<script type="text/javascript">
-		
-		var a = prompt("Введите 1 число");
-		var mathOperation = prompt("Введите математическую операцию");
-		var b = prompt("Введите 2 число");
-		var result = null;
-
-		switch(mathOperation) {
-			case "+": result = a+b; break;
-			case "-": result = a-b; break;
-			case "*": result = a*b; break;
-			case "/": result = a/b; break;
-			case "%": result = a%b; break;
-			default:alert('Введена неверная операция');
+		function compareNumeric(a, b) {
+		  if (a > b) return 1;
+		  if (a < b) return -1;
 		}
 
-		document.write("Результат = " + result);
+		var arr = [2,13,32,22,54,13,71];
 
+		arr.sort(compareNumeric);
 
+		document.write(arr); 
 	</script>
 </head>
 <body>
+	
 </body>
 </html>
