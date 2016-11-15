@@ -4,27 +4,27 @@
     <meta charset="UTF-8">
     <title>Document</title>
      <script type="text/javascript">
-        var arr = {
+        var arr = [{
         name:"",
         sname:"",
         age:""
-    }
+    }]
 
 
         function ask() {
-            arr.name = prompt("Введите свое имя:");
-            arr.sname = prompt("Введите свою фамилию:");
-            arr.age = prompt("Введите свой возраст:");
+            this.name = prompt("Введите свое имя:");
+            this.sname = prompt("Введите свою фамилию:");
+            this.age = +prompt("Введите свой возраст:");
         }
 
 
         function say() {
-            document.write("Имя: " + arr.name + "<br />");
-            document.write("Фамилия: " + arr.sname + "<br />");
-            document.write("Возраст: " + arr.age + "<br />");
-            document.write("<hr/>");
+            //document.write("Имя: " + this.name + "<br />");
+            //document.write("Фамилия: " + this.sname + "<br />");
+            //document.write("Возраст: " + this.age + "<br />");
+            //document.write("<hr/>");
+            console.log(this.name + ' ' + this.sname + ' ' + this.age);
         }
-
 
         do {
             ask();
