@@ -1,21 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	<script type="text/javascript">
-		var g=9.8;
-		var V0 = prompt("Введите значение V0");
-		var t = prompt("Введите значение t");
-
-		var h =(V0*t)+((g*(t*t))/2);
-
-		document.write("h = " + h);
+    <meta charset="UTF-8">
+    <title>Document</title>
+     <script type="text/javascript">
+        var arr = [{
+        name:"",
+        sname:"",
+        age:""
+    }]
 
 
-	</script>
+        function ask() {
+            this.name = prompt("Введите свое имя:");
+            this.sname = prompt("Введите свою фамилию:");
+            this.age = +prompt("Введите свой возраст:");
+        }
+
+
+        function say() {
+            //document.write("Имя: " + this.name + "<br />");
+            //document.write("Фамилия: " + this.sname + "<br />");
+            //document.write("Возраст: " + this.age + "<br />");
+            //document.write("<hr/>");
+            console.log(this.name + ' ' + this.sname + ' ' + this.age);
+        }
+
+        do {
+            ask();
+            say();
+            repeater = confirm("Пройти заполнение еще раз?");
+        } while (repeater);
+    </script>
 </head>
 <body>
-	
+    
 </body>
-</html> 
+</html>
