@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		
+		var age = prompt("Введите ваш возраст");
+
+		if (age>0 && age<18){
+			document.write("Вам по закону запрещено!");
+		} else if (age>=18 && age<21) {
+			document.write("Можете пить, но не много!");
+		} else if (age>=22 && age<45){
+			document.write("Вы можете пить, но это вредно для здоровья!");
+		} else if (age>=45) {
+			document.write("В вашем возрасте уже пора пить элитный алкоголь!");
+		} else {
+			document.write("С вашим возрастом что-то не так, по клавишам не попадаете, прекращайте пить!");
+		}
+	</script>
+</head>
+<body>
+</body>
+</html>

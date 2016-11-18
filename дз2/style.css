@@ -1,0 +1,36 @@
+body {
+	font-size: 14px;
+}
+.goodletter {
+	font-family: 'Colibri', 'sans-serif';
+	font-size: 18px;
+	font-weight: bold;
+}
+.hr1 {
+	width:500px;
+	align:center; 
+}
+li {
+	list-style-type: decimal;
+}
+.hr2 {
+	width:600px;
+	align:center; 
+}
+h1 {
+	text-transform: uppercase;
+	text-align: center;
+}
+pre {
+	font-family: 'Calibri', 'sans-serif';
+	font-style: italic;
+}
+.hr3 {
+	width:700px;
+	align:center; 
+}
+.hr4 {
+	width:600px;
+	align:center;
+	border: 1px solid #000;
+}
