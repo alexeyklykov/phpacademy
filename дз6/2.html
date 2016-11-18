@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		var a = new Array(1,2,3,4,5,6,7);
+
+		function reverseArr(){
+			var x = a.lenght;
+			var tmp = null;
+			for(var i = 0; i < x/2; i++){
+				//for(var j = a.lenght-1; j>i; j--) {
+					tmp = a[i];
+					a[i] = a[(x-i-1)];
+					a[(x-i-1)] = tmp;
+					document.write(a[i] + "<br />");
+				//}
+			}
+		}
+
+		reverseArr();
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

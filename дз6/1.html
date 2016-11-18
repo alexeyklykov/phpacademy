@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+     <script type="text/javascript">
+        var person = [{
+            name:'',
+            sname:'',
+            age:''
+        }]
+        var array = [];
+
+
+        function ask() {
+            person.name = prompt("Введите свое имя:");
+            person.sname = prompt("Введите свою фамилию:");
+            person.age = +prompt("Введите свой возраст:");
+            array.push(person);
+            console.log(person);
+        }
+
+
+        function say() {
+            document.write("Имя: " + person.name + "<br />");
+            document.write("Фамилия: " + person.sname + "<br />");
+            document.write("Возраст: " + person.age + "<br />");
+            document.write("<hr/>");
+            //console.log(this.name + ' ' + this.sname + ' ' + this.age);
+        }
+
+        do {
+            ask();
+            say();
+            repeater = confirm("Пройти заполнение еще раз?");
+        } while (repeater);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
