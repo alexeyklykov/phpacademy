@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		var arr = {
+                name: '',
+                age: '',
+                lang: []
+            };
+
+        var person = [];
+        
+
+        function Human() {
+        	arr.name = prompt("Введите имя");
+        	arr.age = +prompt("Введите возраст");
+        	arr.lang = prompt("Введите языки через запятую").split(',');
+            person.push(arr);    	
+        }
+
+        do {
+            Human();
+            var repeat = confirm("Добавить еще одного человека?");
+        } while (repeat);
+
+        for (var i =0; i < person.length; i++) {
+            for(field in person[i]) {
+                console.log(field + ' : ' + person[i][field]);
+            }
+            console.log('\n');
+        }
+        //console.log(arr);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

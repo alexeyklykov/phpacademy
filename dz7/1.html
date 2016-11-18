@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		var num1 = +prompt("Введите 1 число");
+		
+		var num2 = +prompt("Введите 2 число");
+		
+		var result = null;
+
+		var add = function (num1, num2) {
+            return num1 + num2;
+        };
+        var sub = function (num1, num2) {
+            return num1 - num2;
+        };
+        var mul = function (num1, num2) {
+            return num1 * num2;
+        };
+        var div = function (num1, num2) {
+            return num1 / num2;
+        };
+
+        function show(callBack, num1, num2) {
+            var result = callBack(num1, num2);
+            document.write("<p>" + result);
+        }; 
+
+		show(add, num1, num2);
+        show(sub, num1, num2);
+        show(mul, num1, num2);
+        show(div, num1, num2);
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
