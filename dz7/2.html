@@ -1,40 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	<script type="text/javascript">
-		var arr = {
-                name: '',
-                age: '',
-                lang: []
-            };
+    <meta charset="UTF-8">
+    <title>Document</title>
+     <script type="text/javascript">
+        var person = {
+            name:'',
+            sname:'',
+            age:'',
+            lang: []
+        }
+        var array = [{
+                name:'olya',
+                age:23,
+                lang: ['js','php','html']
+            },{
+                name:'vika',
+                age:21,
+                lang: ['php','js','html']
+            }];
 
-        var person = [];
-        
 
-        function Human() {
-        	arr.name = prompt("Введите имя");
-        	arr.age = +prompt("Введите возраст");
-        	arr.lang = prompt("Введите языки через запятую").split(',');
-            person.push(arr);    	
+        function ask() {
+            person.name = prompt("Введите свое имя:");
+            person.sname = prompt("Введите свою фамилию:");
+            person.age = +prompt("Введите свой возраст:");
+            person.lang = new Array(prompt("Введите языки через запятую"));
+            array.push(person);
+            console.log(person);
+        }
+
+
+        function say() {
+            //Для браузера
+            for (var i =0; i < array.length; i++) {
+                for(field in array[i]) {
+                    document.write(field + ": "+ array[i][field]  "<br />");
+                }
+                document.write('<hr />');
+            }
+                //Для консоли
+            for (var i =0; i < array.length; i++) {
+                for(field in array[i]) {
+                    console.log(array[i][field]);
+                }
+                console.log('\n');
+            }
         }
 
         do {
-            Human();
-            var repeat = confirm("Добавить еще одного человека?");
-        } while (repeat);
+            ask();
+            say();
+            repeater = confirm("Пройти заполнение еще раз?");
+        } while (repeater);
 
-        for (var i =0; i < person.length; i++) {
-            for(field in person[i]) {
-                console.log(field + ' : ' + person[i][field]);
-            }
-            console.log('\n');
-        }
-        //console.log(arr);
-	</script>
+
+    </script>
 </head>
 <body>
-	
+    
 </body>
 </html>
