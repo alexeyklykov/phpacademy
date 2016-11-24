@@ -32,112 +32,125 @@
                 lang: ['js']
             }];
 
-        function ask() {
-            person.name = prompt("Введите свое имя:");
-            person.sname = prompt("Введите свою фамилию:");
-            person.age = +prompt("Введите свой возраст:");
-            person.sex = sex();
-                function sex() {
-                    if (confirm("Вы мужчина?")) {
-                        return "Male";
-                    } else {
-                        return "Female";
-                    }
-                }
-            person.lang = new Array(prompt("Введите языки через запятую"));
-            array.push(person);
-            console.log(person);
-        }
-
-        function say() {
-            var view = document.getElementById("view");
-            var p = document.getElementById("paragraph");
-            p.innerHTML = '';
-            for (var i =0; i < array.length; i++) {
+            function say() {
+                person = {};
+                var view = document.getElementById("view");
+                var p = document.getElementById("paragraph");
+                p.innerHTML = '';
+                for (var i =0; i < array.length; i++) {
                     p.innerHTML += (
                         "Имя: " + array[i].name + "<br />" + 
                         "Фамилия: " + array[i].sname + "<br />" + 
                         "Возраст: " + array[i].age + "<br />" + 
+                        "Пол: " + array[i].sex + "<br />" + 
                         "Язык программирования: " + array[i].lang + "<br /><hr />"); 
+                    }
+                view.appendChild(p);
+                /*
+                for (var i =0; i < array.length; i++) {
+                    for(field in array[i]) {
+                        console.log(array[i][field]);
+                    }
+                    console.log('\n');
                 }
-            view.appendChild(p);
-            /*
-            for (var i =0; i < array.length; i++) {
-                for(field in array[i]) {
-                    console.log(array[i][field]);
+                    */
+            }
+
+    window.onload = function () {
+
+        document.getElementById("ask").onclick =
+            function ask() {
+                person.name = prompt("Введите свое имя:");
+                person.sname = prompt("Введите свою фамилию:");
+                person.age = +prompt("Введите свой возраст:");
+                person.sex = sex();
+                    function sex() {
+                        if (confirm("Вы мужчина?")) {
+                            return "Male";
+                        } else {
+                            return "Female";
+                        }
+                    }
+                person.lang = new Array(prompt("Введите языки через запятую"));
+                array.push(person);
+                console.log(person);
+            }
+        
+
+                
+        
+
+            document.getElementById("delObjByName").onclick =
+            function delObjByName() {
+                var name = prompt("Введите имя человека, которого хотите удалить");
+                for (var i = 0; i < array.length; i++) {
+                    if (array[i].name == name) {
+                        array.splice(i, 1);
+                    }
+                }   
+
+                say();
+            }
+
+            document.getElementById("delObjByIndex").onclick = 
+            function delObjByIndex() {
+                var objIndex = prompt("Индекс человека, которого нужно удалить");
+                for (var i = 0; i < array.length; i++) {
+                    if (i == objIndex) {
+                        array.splice(i, 1);
+                    }
                 }
-                console.log('\n');
+
+                say();
             }
-            */
-        }
-      	
-      	function delObjByName() {
-            var name = prompt("Введите имя человека, которого хотите удалить");
-	    	for (var i = 0; i < array.length; i++) {
-	        	if (array[i].name == name) {
-	            	array.splice(i, 1);
-	        	}
-        	}	
 
-        	say();
-		}
+            document.getElementById("sortByName").onclick = 
+            function sortByName() {
+                function compareName(a,b){
+                    if (a.name < b.name) return -1;
+                    if (a.name > b.name) return 1;
+                    else return 0;
+                }
+                array.sort(compareName);
 
-        function delObjByIndex() {
-            var objIndex = prompt("Индекс человека, которого нужно удалить");
-            for (var i = 0; i < array.length; i++) {
-	        	if (i == objIndex) {
-	            	array.splice(i, 1);
-	        	}
-        	}
-
-        	say();
-        }
-
-        function sortByName() {
-        	function compareName(a,b){
-	        	if (a.name < b.name) return -1;
-	        	if (a.name > b.name) return 1;
-	        	else return 0;
-        	}
-            array.sort(compareName);
-
-            say();
-        }
-
-        function sortByLang() {
-            function compareName(a,b){
-                if (a.lang.length < b.lang.length) return -1;
-                if (a.lang.length > b.lang.length) return 1;
-                else return 0;
+                say();
             }
-            array.sort(compareName);
 
-            say();
-        }
+                document.getElementById("sortByLang").onclick = function sortByLang() {
+                    function compareLang(a,b){
+                        if (a.lang.length > b.lang.length) return -1;
+                        if (a.lang.length < b.lang.length) return 1;
+                        else return 0;
+                    }
+                    array.sort(compareLang);
 
-        function sortByAge() {
-            function compareName(a,b){
-                if (a.age < b.age) return -1;
-                if (a.age > b.age) return 1;
-                else return 0;
+                    say();
+                }
+
+        
+            document.getElementById("sortByAge").onclick = function sortByAge() {
+                function compareAge(a,b){
+                    if (a.age < b.age) return -1;
+                    if (a.age > b.age) return 1;
+                    else return 0;
+                }
+                array.sort(compareAge);
+
+                say();
             }
-            array.sort(compareName);
 
-            say();
-        }
-
-
+    }
     </script>
 </head>
 <body>
 
-    <input type="button" class="add" value="Добавить" onclick="javascript:ask();">
-    <input type="button" value="Посмотреть список" onclick="javascript:say();">
-    <input type="button" class="delObjByName" value="Удалить по имени" onclick="javascript:delObjByName();">
-    <input type="button" class="delObjByIndex" value="Удалить по Индексу" onclick="javascript:delObjByIndex();">
-    <input type="button" class="sortByName" value="Сортировать по имени" onclick="javascript:sortByName();">
-    <input type="button" class="sortByLang" value="Сортировать по языкам" onclick="javascript:sortByLang();">
-    <input type="button" id="sortByAge" value="Сортировать по возрасту" onclick="javascript:sortByAge();">
+    <input type="button" id="ask" value="Добавить">
+    <input type="button" id="say" value="Посмотреть список" onclick="javascript:say();">
+    <input type="button" id="delObjByName" value="Удалить по имени">
+    <input type="button" id="delObjByIndex" value="Удалить по Индексу">
+    <input type="button" id="sortByName" value="Сортировать по имени">
+    <input type="button" id="sortByLang" value="Сортировать по языкам">
+    <input type="button" id="sortByAge" value="Сортировать по возрасту">
 
     <div id=view>
         <p id="paragraph"></p>
