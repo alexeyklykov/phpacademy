@@ -32,6 +32,34 @@
                 lang: ['js']
             }];
 
+            
+
+    window.onload = function () {
+
+        document.getElementById("ask").onclick =
+            function ask() {
+                person.name = prompt("Введите свое имя:");
+                person.sname = prompt("Введите свою фамилию:");
+                person.age = +prompt("Введите свой возраст:");
+                person.sex = sex();
+                    function sex() {
+                        if (confirm("Вы мужчина?")) {
+                            return "Male";
+                        } else {
+                            return "Female";
+                        }
+                    }
+                person.lang = new Array(prompt("Введите языки через запятую"));
+                array.push(person);
+                console.log(person);
+            }
+
+        document.getElementById("say").onclick = function () {
+           var p = document.getElementById("paragraph");
+           p.innerHTML = '';
+           say();
+       }
+
             function say() {
                 person = {};
                 var view = document.getElementById("view");
@@ -55,30 +83,6 @@
                 }
                     */
             }
-
-    window.onload = function () {
-
-        document.getElementById("ask").onclick =
-            function ask() {
-                person.name = prompt("Введите свое имя:");
-                person.sname = prompt("Введите свою фамилию:");
-                person.age = +prompt("Введите свой возраст:");
-                person.sex = sex();
-                    function sex() {
-                        if (confirm("Вы мужчина?")) {
-                            return "Male";
-                        } else {
-                            return "Female";
-                        }
-                    }
-                person.lang = new Array(prompt("Введите языки через запятую"));
-                array.push(person);
-                console.log(person);
-
-
-            }
-        
-
                 
         
 
@@ -141,23 +145,198 @@
                 say();
             }
 
+            document.getElementById("closeWindow").onclick = function closeWindow(){
+                if (confirm("Завершить?")) {
+                close();
+              }
+            }
     }
 
-    function close (){
-        if (confirm("Вы хотите закрыть?")) document.close;
-    }
+    
     </script>
 </head>
 <body>
 
     <input type="button" id="ask" value="Добавить">
-    <input type="button" id="say" value="Посмотреть список" onclick="javascript:say();">
+    <input type="button" id="say" value="Посмотреть список">
     <input type="button" id="delObjByName" value="Удалить по имени">
     <input type="button" id="delObjByIndex" value="Удалить по Индексу">
     <input type="button" id="sortByName" value="Сортировать по имени">
     <input type="button" id="sortByLang" value="Сортировать по языкам">
     <input type="button" id="sortByAge" value="Сортировать по возрасту">
-    <input type="button" id="close" value="Закрыть" onclick="close();">
+    <input type="button" id="closeWindow" value="Закрыть">
+
+    <div id=view>
+        <p id="paragraph"></p>
+    </div>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+     <script type="text/javascript">
+        var person = {
+            name:'',
+            sname:'',
+            age:'',
+            sex:'',
+            lang: []
+        }
+
+        var array = [{
+                name:'Vika',
+                sname:'sOlya',
+                age:23,
+                sex: 'Female',
+                lang: ['js','php']
+            },{
+                name:'Olya',
+                sname:'sVika',
+                age:21,
+                sex: 'Female',
+                lang: ['php','js','html']
+            },{
+                name:'Alex',
+                sname:'sAlex',
+                age:22,
+                sex: 'Male',
+                lang: ['js']
+            }];
+
+            
+
+    window.onload = function () {
+
+        document.getElementById("ask").onclick =
+            function ask() {
+                person.name = prompt("Введите свое имя:");
+                person.sname = prompt("Введите свою фамилию:");
+                person.age = +prompt("Введите свой возраст:");
+                person.sex = sex();
+                    function sex() {
+                        if (confirm("Вы мужчина?")) {
+                            return "Male";
+                        } else {
+                            return "Female";
+                        }
+                    }
+                person.lang = new Array(prompt("Введите языки через запятую"));
+                array.push(person);
+                console.log(person);
+            }
+
+        document.getElementById("say").onclick = function () {
+           var p = document.getElementById("paragraph");
+           p.innerHTML = '';
+           say();
+       }
+
+            function say() {
+                person = {};
+                var view = document.getElementById("view");
+                var p = document.getElementById("paragraph");
+                p.innerHTML = '';
+                for (var i =0; i < array.length; i++) {
+                    p.innerHTML += (
+                        "Имя: " + array[i].name + "<br />" + 
+                        "Фамилия: " + array[i].sname + "<br />" + 
+                        "Возраст: " + array[i].age + "<br />" + 
+                        "Пол: " + array[i].sex + "<br />" + 
+                        "Язык программирования: " + array[i].lang + "<br /><hr />"); 
+                    }
+                view.appendChild(p);
+                /*
+                for (var i =0; i < array.length; i++) {
+                    for(field in array[i]) {
+                        console.log(array[i][field]);
+                    }
+                    console.log('\n');
+                }
+                    */
+            }
+                
+        
+
+            document.getElementById("delObjByName").onclick =
+            function delObjByName() {
+                var name = prompt("Введите имя человека, которого хотите удалить");
+                for (var i = 0; i < array.length; i++) {
+                    if (array[i].name == name) {
+                        array.splice(i, 1);
+                    }
+                }   
+
+                say();
+            }
+
+            document.getElementById("delObjByIndex").onclick = 
+            function delObjByIndex() {
+                var objIndex = prompt("Индекс человека, которого нужно удалить");
+                for (var i = 0; i < array.length; i++) {
+                    if (i == objIndex) {
+                        array.splice(i, 1);
+                    }
+                }
+
+                say();
+            }
+
+            document.getElementById("sortByName").onclick = 
+            function sortByName() {
+                function compareName(a,b){
+                    if (a.name < b.name) return -1;
+                    if (a.name > b.name) return 1;
+                    else return 0;
+                }
+                array.sort(compareName);
+
+                say();
+            }
+
+                document.getElementById("sortByLang").onclick = function sortByLang() {
+                    function compareLang(a,b){
+                        if (a.lang.length > b.lang.length) return -1;
+                        if (a.lang.length < b.lang.length) return 1;
+                        else return 0;
+                    }
+                    array.sort(compareLang);
+
+                    say();
+                }
+
+        
+            document.getElementById("sortByAge").onclick = function sortByAge() {
+                function compareAge(a,b){
+                    if (a.age < b.age) return -1;
+                    if (a.age > b.age) return 1;
+                    else return 0;
+                }
+                array.sort(compareAge);
+
+                say();
+            }
+
+            document.getElementById("closeWindow").onclick = function closeWindow(){
+                if (confirm("Завершить?")) {
+                close();
+              }
+            }
+    }
+
+    
+    </script>
+</head>
+<body>
+
+    <input type="button" id="ask" value="Добавить">
+    <input type="button" id="say" value="Посмотреть список">
+    <input type="button" id="delObjByName" value="Удалить по имени">
+    <input type="button" id="delObjByIndex" value="Удалить по Индексу">
+    <input type="button" id="sortByName" value="Сортировать по имени">
+    <input type="button" id="sortByLang" value="Сортировать по языкам">
+    <input type="button" id="sortByAge" value="Сортировать по возрасту">
+    <input type="button" id="closeWindow" value="Закрыть">
 
     <div id=view>
         <p id="paragraph"></p>
