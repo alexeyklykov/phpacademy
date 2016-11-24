@@ -75,7 +75,7 @@
                 array.push(person);
                 console.log(person);
 
-                
+
             }
         
 
@@ -142,6 +142,10 @@
             }
 
     }
+
+    function close (){
+        if (confirm("Вы хотите закрыть?")) document.close;
+    }
     </script>
 </head>
 <body>
@@ -153,6 +157,7 @@
     <input type="button" id="sortByName" value="Сортировать по имени">
     <input type="button" id="sortByLang" value="Сортировать по языкам">
     <input type="button" id="sortByAge" value="Сортировать по возрасту">
+    <input type="button" id="close" value="Закрыть" onclick="close();">
 
     <div id=view>
         <p id="paragraph"></p>
