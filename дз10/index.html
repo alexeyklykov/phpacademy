@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Полиморфизм</title>
+
+	<script type="text/javascript">
+		function Area(area) {
+			this.area = area;
+	        this.getArea = function () {
+	        	document.write("Площадь равна: " + this.area + "<br />");
+	    	}
+		}
+
+		function Rectangle(a, b) {
+            this.a = a; //сторона А
+            this.b = b; //сторона В
+	        this.area = this.a * this.b;
+        }
+
+        function Circle(a) {
+            this.a = a; //Радиус
+            this.area = (Math.PI*(a*a)).toFixed(2);
+        }
+
+        function Trinagle(a, b) {
+            this.a = a; //сторона А
+            this.b = b; //высота
+            this.area = ((a*b)/2).toFixed(2);
+        }
+
+
+		var area = new Area();
+
+		Rectangle.prototype = area;
+		Circle.prototype = area;
+		Trinagle.prototype = area;
+
+		var Rectangle = new Rectangle(10,5);
+		var Circle = new Circle(2);
+        var Trinagle = new Trinagle(3,4);
+
+
+		Rectangle.getArea();
+		Circle.getArea();
+		Trinagle.getArea();
+        
+
+        
+        
+	</script>
+
+</head>
+<body>
+	
+</body>
+</html>
