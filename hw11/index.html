@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+	<script src="mask.js"></script>
+	<title>Document</title>
+	<script type="text/javascript">
+
+	var patternName = new RegExp("/^[a-zA-Zа-яА-Я'][a-zA-Zа-яА-Я-' ]+[a-zA-Zа-яА-Я']?$/");
+	var patternAge = new RegExp("/^\d{1,3}$/");
+	var patternEmail = new RegExp("/^[a-z0-9]+[-._a-z0-9]+@(?:[a-z0-9][-a-z0-9]+\.)+[a-z]{2,6}$/");
+	var patternPhone = new RegExp("/+38 \([0-9]{3}\)\s[0-9]{3}-[0-9]{2}-[0-9]{2}/");
+	$(document).ready(function(){
+		$('#my-phone').mask('+38 (___) ___-__-__');
+	});
+
+	var myname = "myname";
+	var myage = "myage";
+	var email = "my-email";
+	var phone = "my-phone";
+
+		window.onload = function (){
+
+			function validButton(a,b) {
+
+				var valueInput = document.getElementById(a).value;
+			
+				if (b.test(valueInput)) {
+					document.getElementById(a).classList.add("error");
+				} 
+				else {
+					document.getElementById(a).classList.add("submit");
+				}
+			}
+
+			document.getElementById(myname).onchange = validButton(myname,patternName);
+			document.getElementById(myage).onchange = validButton(myage,patternAge);
+			document.getElementById(email).onchange = validButton(email,patternEmail);
+			document.getElementById(phone).onchange = validButton(phone,patternPhone);
+
+		}
+
+			
+	</script>
+	<style>
+		.error {border: 1px solid red;}
+		.submit {border: 1px solid green;}
+	</style>
+</head>
+<body>
+	<form>
+		<table>
+	      <tr>
+	        <td>Name</td>
+	        <td>
+	          <input type="text" id="myname">
+	        </td>
+	      </tr>
+
+	      <tr>
+	        <td>Age</td>
+	        <td>
+	          <input type="text" id="myage">
+	        </td>
+	      </tr>
+
+	      <tr>
+	        <td>Email</td>
+	        <td>
+	          <input type="email" id="my-email">
+	        </td>
+	      </tr>
+
+	      <tr>
+	        <td>Telephone</td>
+	        <td>
+	          <input type="text" id="my-phone">
+	        </td>
+	      </tr>	
+	   	</table>
+	</form>
+</body>
+</html>
