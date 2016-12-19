@@ -40,10 +40,17 @@
                     elementToDrag.style.left = (e.clientX - deltaX) + "px";
                     elementToDrag.style.top = (e.clientY - deltaY) + "px";
 
+                    var figureX = document.getElementById("wrapper").offsetLeft;
+                    var figureY = document.getElementById("wrapper").offsetTop;
 
-                    if (elementToDrag.style.top == 0 + "px" || elementToDrag.style.left == 0 + "px") {
+                    if (elementToDrag.style.top == 0 + "px" || elementToDrag.style.left == 0 + "px" || elementToDrag.style.top == 450 + "px" || elementToDrag.style.left == 450 + "px") {
                         document.getElementById("wrapper").style.border = "3px solid red";
+                        deltaX = figureX;
+                        deltaY = figureY;
                     } else {document.getElementById("wrapper").style.border = "none";}
+
+
+
                 }
 
                 function upHandler(e) {
