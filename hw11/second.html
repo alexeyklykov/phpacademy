@@ -1,0 +1,107 @@
+<html>
+<head>
+    <title>Timer</title>
+    <script type="text/javascript">
+        window.onload = function () {
+            var ssec = 0;
+            var sec = 0;
+            var min = 0;
+            var hour = 0;
+            var counter = null;
+
+            document.getElementById("start").onclick = function (){
+                counter = setInterval(Count, 1);
+
+
+                function Count() {
+                    ssec+=4;
+                    document.getElementById("ssec").innerHTML = ssec;
+                    if(ssec === 1000) {
+                        ssec = 0;
+                        sec++;
+                        document.getElementById("sec").innerHTML = sec;
+                            if(sec === 2) {
+                            sec = 0;
+                            min++;
+                            document.getElementById("min").innerHTML = min;
+                                if(min === 2) {
+                                min = 0;
+                                hour++;
+                                document.getElementById("hour").innerHTML = hour;
+                            }
+                        }
+                    }
+                }
+            }
+
+            document.getElementById("stop").onclick = function (){
+                clearInterval(counter);
+            }
+
+            document.getElementById("reset").onclick = function (){
+                ssec = 0;
+                sec = 0;
+                min = 0;
+                hour = 0;
+                counter = null;
+                document.getElementById("ssec").innerHTML = ssec;
+                document.getElementById("sec").innerHTML = sec;
+                document.getElementById("min").innerHTML = min;
+                document.getElementById("hour").innerHTML = hour;
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background: #aaa;
+        }
+        input {
+            width:60px;
+            height:30px;
+            border:none;
+            padding:5px;
+            background:#123;
+            color:#fff;
+            border-radius:4px;
+            cursor:hand;
+            margin-right: 11px;
+        }
+        input:hover {
+            background:#234;
+        }
+        p {
+            width:210px;
+            background: #123;
+            color:#fff
+        }
+        span {
+            margin-right:15px;
+        }
+        span:first-child {
+            margin-left:20px;
+        }
+        span:last-child {
+            margin-right:0px;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="Start" id="start">
+    <input type="button" value="Stop" id="stop">
+    <input type="button" value="Reset" id="reset">
+
+    <p id="output">
+        <span id="hour">0</span>
+        <span> : </span>
+        <span id="min">0</span>
+        <span> : </span>
+        <span id="sec">0</span>
+        <span> : </span>
+        <span id="ssec">0</span>
+    </p>
+</body>
+</html>
+
+
+
