@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		var lastResFind="";
+		var copy_page="";
+		function TrimStr(s) {
+		     s = s.replace( /^\s+/g, '');
+		  return s.replace( /\s+$/g, '');
+		}
+		function FindOnPage(inputId) {
+		  var obj = window.document.getElementById(inputId);
+		  var textToFind;
+		  
+		  if (obj) {
+		    textToFind = TrimStr(obj.value);
+		  } if (textToFind == "") {
+		    alert("Вы ничего не ввели");
+		    return;
+		  }
+		   
+		  if(document.body.innerHTML.indexOf(textToFind)=="-1")
+		  alert("Ничего не найдено, проверьте правильность ввода!");
+		   
+		  if(copy_page.length>0)
+		        document.body.innerHTML=copy_page;
+		  else copy_page=document.body.innerHTML;
+		 
+		   
+		  document.body.innerHTML = document.body.innerHTML.replace(eval("/name="+lastResFind+"/gi")," ");
+		  document.body.innerHTML = document.body.innerHTML.replace(eval("/"+textToFind+"/gi"),"<a name="+textToFind+" style='background:#e5e500'>"+textToFind+"</a>");
+ } 
+
+</script>
+</head>
+<body>
+<input type="text" id="search" value=""> 
+<input type="button" onclick="javascript: FindOnPage('search'); return false;" value="Искать"/>
+
+<p style="width:500px; text-align:justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, voluptas dolorem nobis libero itaque, praesentium voluptatum. Eaque, nostrum eligendi obcaecati consequuntur magnam. Animi quasi minima labore nostrum minus, rem itaque deserunt, ratione quaerat unde velit sint sit, accusantium iusto quo? Repudiandae accusamus eius dolor sequi blanditiis ullam qui aliquid exercitationem.</p>
+</body>
+</html>
