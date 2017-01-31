@@ -1,0 +1,18 @@
+[
+	{ 
+		"text": "Chocolate",
+		"done": "true"
+	},
+	{
+		"text": "Potato",
+		"done": false 
+	},
+	{ 
+		"text": "Banana",
+		"done": false 
+	},
+	{ 
+		"text": "Water", 
+		"done": true 
+	}
+]

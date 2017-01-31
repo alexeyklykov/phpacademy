@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+	<script src="app.js"></script>
+	<title>ToDo</title>
+</head>
+<body ng-controller="firstCtrl">
+	<h1>Добавь задание...</h1>
+		<form>
+			<input type="text" ng-model="tempInput" />
+			<button ng-click="addNew()">Добавить</button>
+		</form>
+		<div>
+			<p ng-repeat="task in tasksArr">
+				{{task.text}} is {{task.done}}
+				<button ng-click="deleteItem(task)">x</button>
+			</p>
+		</div>
+</body>
+</html>
