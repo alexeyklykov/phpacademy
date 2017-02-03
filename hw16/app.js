@@ -37,14 +37,7 @@ angular.module("myApp",[])
 		}
 
 		//Изменить пункт
-		$scope.toggleEditMode = function(){
-			 $(event.target).closest('li').toggleClass('editing');
-		};
-		$scope.editOnEnter = function(item){
-			if(event.keyCode == 13 && item.text){
-					$scope.toggleEditMode();
-			}
-		};
+		$scope.toggle = false;
 
 		//Изменение данных
 		$scope.$watch('tasksArr',function(newVal,oldVal){

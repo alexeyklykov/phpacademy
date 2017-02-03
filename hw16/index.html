@@ -20,12 +20,12 @@
 		</div>
 
 		<ul>
-			<li ng-repeat="task in tasksArr track by $index" ng-dblclick='toggleEditMode()'>
+			<li ng-repeat="task in tasksArr track by $index" ng-dblclick="toggle = !toggle" ng-class="{'editing':toggle}">
 				<div class='view'>
 					<input type="checkbox" ng-model="task.done" />
 					<span class="li-spn" ng-class="{'done':task.done}">{{task.text}}</span>
 				</div>
-				<input class="edit" type="text" ng-model="task.text" ng-keyup="editOnEnter(task)"/>
+				<input class="edit" type="text" ng-model="task.text" ng-keyup="editOnEnter($event)"/>
 			</li>
 		</ul>
 		

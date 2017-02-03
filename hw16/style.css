@@ -27,6 +27,8 @@ form {
 form input{
 	border:none;
 	border-radius: 4px;
+	background: #7a90bb;
+	color: #fff;
 	padding: 15px;
 	margin-right: 20px;
 	width: 300px;
@@ -52,10 +54,10 @@ form + button {
 ul {
 	clear: both;
 	margin-left: -20px;
-	width: 480px;
+	width: 481px;
 }
 li {
-	border:1px solid #fff;
+	border:1px solid #5a709b;
 	border-radius: 4px;
 	list-style:none;
 	margin-bottom: 5px;
@@ -77,14 +79,21 @@ li .edit {
 	display: none;
 }
 li.editing {
-	border-bottom: 1px solid #778899;
+	background: #5a709b;
+	border:none;
+	width:460px;
 }
 li.editing .view {
 	display: none;
 }
 li.editing .edit {
+	background: #7a90bb;
+	border: none;
+	border-radius: 4px;
+	color: #fff;
 	display: block;
+	font-size: 18px;
 	margin: 0;
-	padding: 13px 15px 14px 20px;
-	width: 444px;
+	padding: 10px;
+	width: 440px;
 }
