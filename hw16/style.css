@@ -1,0 +1,90 @@
+body {
+	background: #27282c;
+}
+h1 {
+	color:#fff;
+	font-size:40px;
+	margin-top: 40px;
+	text-align: center;
+	width: 500px;
+}
+h3 {
+	color:#fff;
+	font-size:25px;
+	margin-top: 25px;
+	text-align: center;
+	width: 500px;
+}
+.forform {
+	width: 500px;
+	margin-left: 20px;
+}
+form {
+	float: left;
+	margin-bottom: 30px;
+	text-align: center;
+}
+form input{
+	border:none;
+	border-radius: 4px;
+	padding: 15px;
+	margin-right: 20px;
+	width: 300px;
+}
+form button {
+	background: #ff5235;
+	border:none;
+	border-radius: 4px;
+	font-weight: bold;
+	font-size: 16px;
+	margin-right: 20px;
+	padding: 13px;
+}
+form + button {
+	background: #5a709b;
+	border:none;
+	border-radius: 4px;
+	float: left;
+	font-weight: bold;
+	font-size: 16px;
+	padding: 13px;
+}
+ul {
+	clear: both;
+	margin-left: -20px;
+	width: 480px;
+}
+li {
+	border:1px solid #fff;
+	border-radius: 4px;
+	list-style:none;
+	margin-bottom: 5px;
+	padding: 10px;
+}
+li div input {
+	margin-left: 10px;
+}
+li div span {
+	color: #fff;
+	font-size: 20px;
+	padding-left: 10px;
+}
+.done{
+	color:#ccc;
+	text-decoration: line-through;
+}
+li .edit {
+	display: none;
+}
+li.editing {
+	border-bottom: 1px solid #778899;
+}
+li.editing .view {
+	display: none;
+}
+li.editing .edit {
+	display: block;
+	margin: 0;
+	padding: 13px 15px 14px 20px;
+	width: 444px;
+}

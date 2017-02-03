@@ -5,18 +5,29 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
 	<script src="app.js"></script>
 	<title>ToDo</title>
+	<link rel="stylesheet" href="style.css">
 </head>
 <body ng-controller="firstCtrl">
 	<h1>Добавь задание...</h1>
-		<form>
-			<input type="text" ng-model="tempInput" />
-			<button ng-click="addNew()">Добавить</button>
-		</form>
-		<div>
-			<p ng-repeat="task in tasksArr">
-				{{task.text}} is {{task.done}}
-				<button ng-click="deleteItem(task)">x</button>
-			</p>
+	<h3>Осталось {{remain()}} из {{tasksArr.length}}</h3>
+		<div class="forform">
+			<form ng-submit="addTask()">
+				<input type="text" ng-model="tempInput" required/>
+				<button ng-disabled="frm.$invalid">Add</button>
+			</form>
+
+			<button class="delete" ng-click="deleteTask()">Del</button>
 		</div>
+
+		<ul>
+			<li ng-repeat="task in tasksArr track by $index" ng-dblclick='toggleEditMode()'>
+				<div class='view'>
+					<input type="checkbox" ng-model="task.done" />
+					<span class="li-spn" ng-class="{'done':task.done}">{{task.text}}</span>
+				</div>
+				<input class="edit" type="text" ng-model="task.text" ng-keyup="editOnEnter(task)"/>
+			</li>
+		</ul>
+		
 </body>
 </html>
