@@ -38,15 +38,15 @@ angular.module("myApp",[])
 
 		//Изменить пункт
 		$scope.toggleEditMode = function(){
-       $(event.target).closest('li').toggleClass('editing');
-    };
-  	$scope.editOnEnter = function(item){
-      if(event.keyCode == 13 && item.text){
-          $scope.toggleEditMode();
-      }
-  	};
+			 $(event.target).closest('li').toggleClass('editing');
+		};
+		$scope.editOnEnter = function(item){
+			if(event.keyCode == 13 && item.text){
+					$scope.toggleEditMode();
+			}
+		};
 
-  	//Изменение данных
+		//Изменение данных
 		$scope.$watch('tasksArr',function(newVal,oldVal){
 			if(newVal!=oldVal){
 				localStorage.setItem('tasksArr',JSON.stringify(newVal))
@@ -55,14 +55,14 @@ angular.module("myApp",[])
 
 		//Счетчик остатка
 		$scope.remain = function () {
-        var count = $scope.tasksArr.length;
-        angular.forEach($scope.tasksArr, function(item) {
-        	var sObj = JSON.stringify($scope.tasksArr);
+				var count = $scope.tasksArr.length;
+				angular.forEach($scope.tasksArr, function(item) {
+					var sObj = JSON.stringify($scope.tasksArr);
 					localStorage.setItem("tasksArr", sObj);
-          count -= item.done;
-        });
-        return count;
-    };
+					count -= item.done;
+				});
+				return count;
+		};
 
 
 

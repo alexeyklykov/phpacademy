@@ -8,8 +8,8 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 <body ng-controller="firstCtrl">
-	<h1>Добавь задание...</h1>
-	<h3>Осталось {{remain()}} из {{tasksArr.length}}</h3>
+	<h1>Add task...</h1>
+	<h3>Remain {{remain()}} for {{tasksArr.length}}</h3>
 		<div class="forform">
 			<form ng-submit="addTask()">
 				<input type="text" ng-model="tempInput" required/>
