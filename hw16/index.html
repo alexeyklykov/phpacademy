@@ -8,19 +8,38 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 <body ng-controller="firstCtrl">
-	<h1>Add task...</h1>
-	<h3>Remain {{remain()}} for {{tasksArr.length}}</h3>
+			
+	<header>
+		<h1>Add task...</h1>
+		<h3>Remain {{remain()}} for {{tasksArr.length}}</h3>
+	</header>
+
 		<div class="forform">
 			<form ng-submit="addTask()">
 				<input type="text" ng-model="tempInput" required/>
-				<button ng-disabled="frm.$invalid">Add</button>
+				<button ng-disabled="frm.$invalid" class='btn-red'>Add</button>
 			</form>
 
-			<button class="delete" ng-click="deleteTask()">Del</button>
+			<button class="btn-blue" ng-click="deleteTask()">Del</button>
+		
+			<div class="bar">
+				<input type="text" ng-model="searchString" placeholder="Enter your search terms" />
+			</div>
+
+			<div>
+				<input type="checkbox" id='toggle-all' ng-model='allCheck' ng-click='checkAllTask(allCheck)' id='check'>
+				<label for='check'>Check All</label>
+			</div>
+
+			<ul id="filters">
+				<li><a href="#/" ngClass='{selected: location:path() == "/""}'>All</a></li>
+				<li><a href="#/active" ngClass='{selected: location:path() == "/active""}'>Active</a></li>
+				<li><a href="#/done" ngClass='{selected: location:path() == "/done""}'>Done</a></li>
+			</ul>
 		</div>
 
 		<ul>
-			<li ng-repeat="task in tasksArr track by $index" ng-dblclick="toggle = !toggle" ng-class="{'editing':toggle}">
+			<li ng-repeat="task in tasksArr  | searchFor:searchString track by $index" ng-dblclick="toggle = !toggle" ng-class="{'editing':toggle}">
 				<div class='view'>
 					<input type="checkbox" ng-model="task.done" />
 					<span class="li-spn" ng-class="{'done':task.done}">{{task.text}}</span>
@@ -28,6 +47,10 @@
 				<input class="edit" type="text" ng-model="task.text" ng-keyup="editOnEnter($event)"/>
 			</li>
 		</ul>
+
+		<footer>
+			<p>ToDo app</p>
+		</footer>
 		
 </body>
 </html>
