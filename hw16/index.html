@@ -26,16 +26,10 @@
 				<input type="text" ng-model="searchString" placeholder="Enter your search terms" />
 			</div>
 
-			<div>
+			<div class='CheckAll btn-blue'>
 				<input type="checkbox" id='toggle-all' ng-model='allCheck' ng-click='checkAllTask(allCheck)' id='check'>
 				<label for='check'>Check All</label>
 			</div>
-
-			<ul id="filters">
-				<li><a href="#/" ngClass='{selected: location:path() == "/""}'>All</a></li>
-				<li><a href="#/active" ngClass='{selected: location:path() == "/active""}'>Active</a></li>
-				<li><a href="#/done" ngClass='{selected: location:path() == "/done""}'>Done</a></li>
-			</ul>
 		</div>
 
 		<ul>
@@ -47,10 +41,5 @@
 				<input class="edit" type="text" ng-model="task.text" ng-keyup="editOnEnter($event)"/>
 			</li>
 		</ul>
-
-		<footer>
-			<p>ToDo app</p>
-		</footer>
-		
 </body>
 </html>
